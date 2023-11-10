@@ -10,11 +10,16 @@ def pos_dec_to_binary(decimal,bit_list):
         bit_list.append(decimal%2)
         return pos_dec_to_binary(decimal//2,bit_list)
     
-#why does this not work? Fix it!
+#why does this not work? Fix it! done
 def countdown(number):
-    print(number)
-    time.sleep(1)
-    countdown(number-1)
+    #base case
+    if number<=0:
+        return
+    #recursion case
+    else:
+        print(number)
+        time.sleep(1)
+        countdown(number-1)
 
 
 #try to complete this
@@ -25,6 +30,8 @@ def fibonacci(n):
     elif n == 1:
         return 1
     #recursive case: the fibonacci number is the sum of the previous 2
+    else:
+        return fibonacci(n-1) + fibonacci(n-2)
 
 #triangular numbers
 def triangular(n):
@@ -83,3 +90,10 @@ If p > q, the gcd of p and q is the same as the gcd of q and p % q."""
 #print (factorial(4))
 #countdown(10)
 #print(binary_search_recursive([1,2,3,4,54,56,58],0,6,1))
+
+
+
+
+
+
+
