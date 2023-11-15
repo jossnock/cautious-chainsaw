@@ -47,21 +47,28 @@ def factorial(input_number):
         return input_number*factorial(input_number-1)
 
 def is_palendromic(string):
-    #filter out whitespace
-    string.replace(' ','')
-    #base case
+    #filter out whitespace and makes all characters lowercase
+    string=string.replace(' ','')
+    string=string.lower()
+    #find string length
     end_letter_pos = len(string)-1
+    #base case
     if end_letter_pos == 0:
-        return ''
+        return "It is a palendrome"
     if string == '':
         return "It is a palendrome"
     if string == "It is a palendrome":
         return "It is a palendrome"
         #recursive case
     elif string[0]==string[end_letter_pos]:
-        string=string.replace(string[end_letter_pos],'')
         string=string.replace(string[0],'')
-        is_palendromic(string)
+        string=' '.join(list(reversed(string)))
+        string=string.replace(' ','')
+        string=string.replace(string[0],'')
+        string=' '.join(list(reversed(string)))
+        string=string.replace(' ','')
+        return is_palendromic(string)
+        
     else: 
         return "It isn't a palendrome"
 
@@ -103,7 +110,7 @@ If p > q, the gcd of p and q is the same as the gcd of q and p % q."""
 #countdown(10)
 #print(triangular(6))
 #print (factorial(5))
-print(is_palendromic('madam'))
+print(is_palendromic("yelloolley"))
 
 #print(pos_dec_to_binary(1234,[]))
 ##or, neater (using a generator expression (outside scope of A-level CS))
