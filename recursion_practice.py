@@ -10,7 +10,6 @@ def pos_dec_to_binary(decimal,bit_list):
         bit_list.append(decimal%2)
         return pos_dec_to_binary(decimal//2,bit_list)
     
-#why does this not work? Fix it! done
 def countdown(number):
     #base case
     if number<=0:
@@ -21,8 +20,6 @@ def countdown(number):
         time.sleep(1)
         countdown(number-1)
 
-
-#try to complete this
 def fibonacci(n):
     #base case
     if n == 0:
@@ -33,21 +30,40 @@ def fibonacci(n):
     else:
         return fibonacci(n-1) + fibonacci(n-2)
 
-#triangular numbers
 def triangular(n):
     #base case
+    if n == 1:
+        return 1
     #recursive case
-    pass
+    else:
+        return n + triangular(n-1)
 
-#try to complete this
 def factorial(input_number):
     #base case
-    
+    if input_number == 1:
+        return 1
     #recursive case
-    pass
+    else:
+        return input_number*factorial(input_number-1)
 
 def is_palendromic(string):
-    pass
+    #filter out whitespace
+    string.replace(' ','')
+    #base case
+    end_letter_pos = len(string)-1
+    if end_letter_pos == 0:
+        return ''
+    if string == '':
+        return "It is a palendrome"
+    if string == "It is a palendrome":
+        return "It is a palendrome"
+        #recursive case
+    elif string[0]==string[end_letter_pos]:
+        string=string.replace(string[end_letter_pos],'')
+        string=string.replace(string[0],'')
+        is_palendromic(string)
+    else: 
+        return "It isn't a palendrome"
 
 #try to complete a recursive linear search, returning the index of the item, or -1
 def linear_search_recursive(items, start_index, end_index, search_item):
@@ -83,12 +99,15 @@ We can efficiently compute the gcd using the following property, which holds for
 If p > q, the gcd of p and q is the same as the gcd of q and p % q."""
 
 #tests
+#print (fibonacci(8))
+#countdown(10)
+#print(triangular(6))
+#print (factorial(5))
+print(is_palendromic('madam'))
+
 #print(pos_dec_to_binary(1234,[]))
 ##or, neater (using a generator expression (outside scope of A-level CS))
 #print("".join(str(i) for i in pos_dec_to_binary(1234,[])))
-#
-#print (factorial(4))
-#countdown(10)
 #print(binary_search_recursive([1,2,3,4,54,56,58],0,6,1))
 
 
