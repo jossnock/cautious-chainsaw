@@ -110,6 +110,39 @@ We can efficiently compute the gcd using the following property, which holds for
 
 If p > q, the gcd of p and q is the same as the gcd of q and p % q."""
 
+def greatest_common_divider_finder_recursive(number_1,number_2):
+    #base case
+    if number_1==number_2:
+        return number_1
+    #recursive case
+
+
+
+
+
+
+print(greatest_common_divider_finder_recursive(102,68))
+
+
+"""
+TODO:
+if p>q, 
+else: 
+    p=temp
+    q=p
+    temp=q
+
+
+
+
+
+
+
+"""
+
+
+
+
 #tests
 #print (fibonacci(8))
 #countdown(10)
