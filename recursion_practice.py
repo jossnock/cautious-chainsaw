@@ -68,16 +68,21 @@ def is_palendromic(string):
         string=' '.join(list(reversed(string)))
         string=string.replace(' ','')
         return is_palendromic(string)
-        
+
     else: 
         return "It isn't a palendrome"
 
 #try to complete a recursive linear search, returning the index of the item, or -1
 def linear_search_recursive(items, start_index, end_index, search_item):
     #base cases
-    #recursive case:
+    if items[start_index] == search_item:
+        return "Item is in list"
+    if items[start_index] == items[end_index]:
+        return "Item isn't in list"
+    #recursive case
+    else:
+        return linear_search_recursive(items, start_index+1, end_index, search_item)
 
-    pass
 
 
 def binary_search_recursive(items, start_index, end_index, search_item):
@@ -110,7 +115,8 @@ If p > q, the gcd of p and q is the same as the gcd of q and p % q."""
 #countdown(10)
 #print(triangular(6))
 #print (factorial(5))
-print(is_palendromic("yelloolley"))
+#print(is_palendromic("yelloolley"))
+#print(linear_search_recursive([1,2,5,8,10,23,25,29,43,50],0,9,8))
 
 #print(pos_dec_to_binary(1234,[]))
 ##or, neater (using a generator expression (outside scope of A-level CS))
