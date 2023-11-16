@@ -46,7 +46,7 @@ def factorial(input_number):
     else:
         return input_number*factorial(input_number-1)
 
-def is_palendromic(string):
+def is_palendromic(string): #makes some mistakes (i.e. classifies some non-palendromes as palendromes)
     #filter out whitespace and makes all characters lowercase
     string=string.replace(' ','')
     string=string.lower()
@@ -76,9 +76,9 @@ def is_palendromic(string):
 def linear_search_recursive(items, start_index, end_index, search_item):
     #base cases
     if items[start_index] == search_item:
-        return "Item is in list"
+        return start_index
     if items[start_index] == items[end_index]:
-        return "Item isn't in list"
+        return -1
     #recursive case
     else:
         return linear_search_recursive(items, start_index+1, end_index, search_item)
@@ -110,18 +110,33 @@ We can efficiently compute the gcd using the following property, which holds for
 
 If p > q, the gcd of p and q is the same as the gcd of q and p % q."""
 
-def greatest_common_divider_finder_recursive(number_1,number_2):
+def greatest_common_divisor_finder_recursive(number_1,number_2):
+    #makes number_1 > number_2
+    temp=0
+    if number_2 > number_1:
+            number_2 = temp
+            number_2 = number_1
+            number_1 = temp
     #base case
     if number_1==number_2:
         return number_1
+    if number_1==0:
+        return number_2
+    if number_2==0:
+        return number_2
     #recursive case
+    else:
+        return greatest_common_divisor_finder_recursive
 
 
 
 
+#mods by number repeatedly
 
 
-print(greatest_common_divider_finder_recursive(102,68))
+
+
+#print(greatest_common_divider_finder_recursive(102,68))
 
 
 """
@@ -149,7 +164,9 @@ else:
 #print(triangular(6))
 #print (factorial(5))
 #print(is_palendromic("yelloolley"))
-#print(linear_search_recursive([1,2,5,8,10,23,25,29,43,50],0,9,8))
+#print(linear_search_recursive([1,2,5,8,10,23,25,29,43,50],0,9,25))
+
+
 
 #print(pos_dec_to_binary(1234,[]))
 ##or, neater (using a generator expression (outside scope of A-level CS))
